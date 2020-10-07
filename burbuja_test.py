@@ -97,17 +97,14 @@ class PruebasBurbuja(unittest.TestCase):
 
 
     def test_mejor_caso(self):
-        print()
-        best, fitted = big_o.big_o(burbuja, generar_mejor, min_n=10, max_n=1000,
+        best, fitted = big_o.big_o(burbuja_optimizado, generar_mejor, min_n=10, max_n=1000,
                                    n_measures=100, n_repeats=3, verbose=False,
                                    classes=[cmpl.Linear, cmpl.Quadratic], return_raw_data=True)
 
         _graficar(fitted, 'Mejor caso')
 
-
     def test_peor_caso(self):
-        print()
-        best, fitted = big_o.big_o(burbuja, generar_peor, min_n=10, max_n=1000,
+        best, fitted = big_o.big_o(burbuja_optimizado, generar_peor, min_n=10, max_n=1000,
                                    n_measures=100, n_repeats=3, verbose=False,
                                    classes=[cmpl.Linear, cmpl.Quadratic], return_raw_data=True)
 
@@ -115,11 +112,12 @@ class PruebasBurbuja(unittest.TestCase):
 
 
     def test_caso_promedio(self):
-        print()
-        best, fitted = big_o.big_o(burbuja, generar_promedio, min_n=10, max_n=1000,
+        best, fitted = big_o.big_o(burbuja_optimizado, generar_promedio, min_n=10, max_n=1000,
                                    n_measures=100, n_repeats=3, verbose=False,
                                    classes=[cmpl.Linear, cmpl.Quadratic], return_raw_data=True)
 
         _graficar(fitted, 'Caso promedio')
+
+
 
     
