@@ -38,6 +38,21 @@ def generar_aleatorio(n):
 
     return A
 
+def generar_mejor(n):
+    lista = []
+    for i in range(n):
+        lista.append(i)
+    return lista
+
+def generar_peor(n):
+    lista = []
+    for i in range(n, 0, -1):
+        lista.append(i)
+    return lista
+
+def generar_promedio(n):
+    lista = generar_aleatorio (n)
+    return lista
 
 class PruebasBurbuja(unittest.TestCase):
 
@@ -82,12 +97,29 @@ class PruebasBurbuja(unittest.TestCase):
 
 
     def test_mejor_caso(self):
-        self.fail('Pendiente de implementar')
+        print()
+        best, fitted = big_o.big_o(burbuja, generar_mejor, min_n=10, max_n=1000,
+                                   n_measures=100, n_repeats=3, verbose=False,
+                                   classes=[cmpl.Linear, cmpl.Quadratic], return_raw_data=True)
+
+        _graficar(fitted, 'Mejor caso')
 
 
     def test_peor_caso(self):
-        self.fail('Pendiente de implementar')
+        print()
+        best, fitted = big_o.big_o(burbuja, generar_peor, min_n=10, max_n=1000,
+                                   n_measures=100, n_repeats=3, verbose=False,
+                                   classes=[cmpl.Linear, cmpl.Quadratic], return_raw_data=True)
+
+        _graficar(fitted, 'Peor caso')
 
 
     def test_caso_promedio(self):
-        self.fail('Pendiente de implementar')
+        print()
+        best, fitted = big_o.big_o(burbuja, generar_promedio, min_n=10, max_n=1000,
+                                   n_measures=100, n_repeats=3, verbose=False,
+                                   classes=[cmpl.Linear, cmpl.Quadratic], return_raw_data=True)
+
+        _graficar(fitted, 'Caso promedio')
+
+    
